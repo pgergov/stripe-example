@@ -1,0 +1,15 @@
+# Basics
+*.py[cod]
+__pycache__
+
+# Logs
+*.log
+pip-log.txt
+
+# Emacs
+\#*\#
+*.elc
+.\#*
+.projectile
+auto-save-list
+tramp
