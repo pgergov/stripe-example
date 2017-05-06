@@ -13,3 +13,6 @@ pip-log.txt
 .projectile
 auto-save-list
 tramp
+
+# Default db
+*.dbsqlite3
