@@ -1,20 +1,25 @@
-# Integrating Stripe Payment with Django
+## Integrating Stripe Payment with Django
 
 Educational django project with Stripe integration
 ---
 
-## Create your users
+### Initial setup
+* Create repo
+* Add db, Python & Emacs files
+
+### Create users
 * Setup `BaseUser` with email & password
 * You'll need a manager
 * Create your users
 * Register everything in Django Admin
 
-## Create your magazine
-* Create your models
-* Create them magazine & article list views
+### Create magazine
+* Create `Magazine` & `Article` models. Register in admin
+* Create magazine & article list views
 * Create urls. Register them.
 * Create templates outside aps. Add settings.
 
-## Add LoginRequiredMixin
-* Add `/login` url
+### Add LoginRequiredMixin
+* Add `/login` url. Add template
 * Add `/logout` url
+* Add `LoginRequiredMixin`
