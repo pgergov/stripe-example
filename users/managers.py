@@ -21,10 +21,10 @@ class BaseUserManager(BaseUserManager):
 
         return user
 
-    def create_user(self, email, password=None, **kwargs):
+    def create(self, email, password, **kwargs):
         kwargs.setdefault('is_superuser', False)
 
-        return self._create_user(email, password, **kwargs)
+        return self._create_user(email, **kwargs)
 
     def create_superuser(self, email, password, **kwargs):
         kwargs.setdefault('is_superuser', True)
