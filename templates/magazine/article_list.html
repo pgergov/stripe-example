@@ -1,6 +1,11 @@
 <div class="container">
-<h1>Articles</h1>
-{% for article in object_list %}
-<p>{{ article }}</p>
-{% endfor %}
+  <h1>Articles</h1>
+
+  {% for article in object_list %}
+  <p>{{ article }}</p>
+  <form method="POST" action="{% url 'magazine:article:buy' article.magazine.id %}">
+    {% csrf_token %}
+    <button type="submit">Buy</button>
+  </form>
+  {% endfor %}
 </div>
