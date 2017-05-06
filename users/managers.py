@@ -2,13 +2,11 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class BaseUserManager(BaseUserManager):
-    use_in_migrations = True
+    use_in_migrations = True  # use in migrations with `RunPython`
 
     def _create_user(self, email, password, **kwargs):
-        if not email:
-            raise ValueError('Email field is required.')
-
         email = self.normalize_email(email)
+
         user = self.model(email=email, **kwargs)
         user.is_staff = kwargs.get('is_superuser', False)
 
