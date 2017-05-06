@@ -1,0 +1,13 @@
+from django.contrib import admin
+
+from users.models import Author, Buyer
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('email', 'age', 'interests')
+
+
+@admin.register(Buyer)
+class BuyerAdmin(admin.ModelAdmin):
+    list_display = ('email', 'came_from', )
