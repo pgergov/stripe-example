@@ -15,4 +15,4 @@ auto-save-list
 tramp
 
 # Default db
-*.dbsqlite3
+*.sqlite3
