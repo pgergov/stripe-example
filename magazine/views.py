@@ -1,15 +1,18 @@
-from django.views import View
+from django.conf import settings
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
-from django.core.urlresolvers import reverse
 
-from .tasks import charge
 from .models import Article, Magazine
 
 
 class MagazineList(LoginRequiredMixin, ListView):
     model = Magazine
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['stripe_pk'] = settings.STRIPE_PUBLIC_KEY
+
+        return context
 
 
 class ArticleList(LoginRequiredMixin, ListView):
@@ -18,13 +21,3 @@ class ArticleList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return self.model.objects\
                          .filter(magazine_id=self.kwargs['magazine_id'])
-
-
-class BuyArticleView(LoginRequiredMixin, View):
-    def get_success_url(self):
-        return reverse('magazine:article:list', kwargs=self.kwargs)
-
-    def post(self, request, *args, **kwargs):
-        charge.delay()
-
-        return redirect(self.get_success_url())

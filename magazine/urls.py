@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 
-from .views import ArticleList, MagazineList, BuyArticleView
+from .views import ArticleList, MagazineList
 
 
 article_patterns = [
@@ -8,11 +8,6 @@ article_patterns = [
         regex='^$',
         view=ArticleList.as_view(),
         name='list'
-    ),
-    url(
-        regex='^buy$',
-        view=BuyArticleView.as_view(),
-        name='buy'
     )
 ]
 
@@ -21,7 +16,7 @@ urlpatterns = [
     url(
         regex='^$',
         view=MagazineList.as_view(),
-        name='magazine-list'
+        name='list'
     ),
     url(
         regex='^(?P<magazine_id>[0-9]+)/article/',
