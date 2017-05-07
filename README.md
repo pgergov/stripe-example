@@ -7,12 +7,10 @@ Educational django project with Stripe integration
 * Create repo
 * Add db, Python & Emacs files
 
-### Create users
-* Setup `BaseUser` with email & password
-* You'll need a manager
-* Change `AUTH_USER_MODEL`
-* Create your users
-* Register everything in Django Admin
+### Checkout `users` app
+* `BaseUser` with email & password
+* Custom managers
+* Changed `AUTH_USER_MODEL`
 
 ### Create magazine
 * Create `Magazine` & `Article` models. Register in admin
@@ -25,9 +23,15 @@ Educational django project with Stripe integration
 * Add `/logout` url
 * Add `LoginRequiredMixin`
 
+
+### Create payments module
+* Create Stripe account
+* Add `CreateCustomerView`
+* Use Stripe's embeded card info modal
+* Create `BuyArticleView`
+
 ### Setup Celery
 * Create `celery.py`
 * Import app in `__init__.py`
 * Create dummy task
 * Run celery in separate terminal
-* Create `BuyArticleView`
