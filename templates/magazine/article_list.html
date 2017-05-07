@@ -3,7 +3,7 @@
 
   {% for article in object_list %}
   <p>{{ article }}</p>
-  <form method="POST" action="{% url 'magazine:article:buy' article.magazine.id %}">
+  <form method="POST" action="{% url 'payments:charge-customer' %}">
     {% csrf_token %}
     <button type="submit">Buy</button>
   </form>
