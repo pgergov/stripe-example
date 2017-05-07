@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^accounts/login/', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^magazine/', include('magazine.urls', namespace='magazine')),
+    url(r'^payments/', include('payments.urls', namespace='payments')),
 ]
