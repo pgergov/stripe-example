@@ -2,7 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
-from .managers import BaseUserManager
+from .managers import (
+    BaseUserManager,
+    AuthorManager,
+    BuyerManager
+)
 
 
 class BaseUser(PermissionsMixin, AbstractBaseUser):
@@ -30,6 +34,11 @@ class Author(BaseUser):
     age = models.IntegerField()
     interests = models.TextField(blank=True, null=True)
 
+    objects = AuthorManager()
+
 
 class Buyer(BaseUser):
     came_from = models.CharField(max_length=255, blank=True)
+    customer_id = models.CharField(max_length=255, blank=True, null=True)
+
+    objects = BuyerManager()

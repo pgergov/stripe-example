@@ -22,7 +22,7 @@ class BaseUserManager(BaseUserManager):
     def create(self, email, password, **kwargs):
         kwargs.setdefault('is_superuser', False)
 
-        return self._create_user(email, **kwargs)
+        return self._create_user(email, password, **kwargs)
 
     def create_superuser(self, email, password, **kwargs):
         kwargs.setdefault('is_superuser', True)
@@ -31,3 +31,11 @@ class BaseUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
 
         return self._create_user(email, password, **kwargs)
+
+
+class AuthorManager(BaseUserManager):
+    """Managers are inherited only if the inherited class is `abstract=true`"""
+
+
+class BuyerManager(BaseUserManager):
+    """Managers are inherited only if the inherited class is `abstract=true`"""
