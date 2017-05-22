@@ -11,9 +11,10 @@ class Magazine(models.Model):
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=255)
     magazine = models.ForeignKey(Magazine)
+    name = models.CharField(max_length=255)
+    price = models.IntegerField()
     author = models.ForeignKey(Author)
 
     def __str__(self):
-        return "Article {} written by {}".format(self.title, self.author)
+        return "{} for {}".format(self.name, self.magazine)

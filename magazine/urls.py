@@ -1,28 +1,17 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 
-from .views import ArticleList, MagazineList
-
-
-article_patterns = [
-    url(
-        regex='^$',
-        view=ArticleList.as_view(),
-        name='list'
-    )
-]
+from .views import MagazineListview, ArticleListview
 
 
 urlpatterns = [
     url(
         regex='^$',
-        view=MagazineList.as_view(),
-        name='list'
+        view=MagazineListview.as_view(),
+        name='magazine-list'
     ),
     url(
-        regex='^(?P<magazine_id>[0-9]+)/article/',
-        view=include(
-            arg=article_patterns,
-            namespace='article'
-        )
+        regex='^(?P<magazine_id>[0-9]+)$',
+        view=ArticleListview.as_view(),
+        name='article-list'
     )
 ]

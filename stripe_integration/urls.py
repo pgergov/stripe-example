@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^logout/', auth_views.logout),
+    url(r'^accounts/login/', auth_views.login),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^magazine/', include('magazine.urls', namespace='magazine')),
     url(r'^payments/', include('payments.urls', namespace='payments')),
 ]

@@ -14,5 +14,4 @@ urlpatterns = [
         view=ChargeCustomerView.as_view(),
         name='charge-customer'
     ),
-
 ]

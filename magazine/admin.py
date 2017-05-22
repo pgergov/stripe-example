@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from magazine.models import Magazine, Article
+from .models import Magazine, Article
 
 
 @admin.register(Magazine)
@@ -10,4 +10,4 @@ class MagazineAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'magazine', 'author')
+    list_display = ('id', 'name', 'magazine', 'author', 'price')
